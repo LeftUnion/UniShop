@@ -1,18 +1,29 @@
+
+DROP SCHEMA IF EXISTS shop CASCADE;
 CREATE SCHEMA IF NOT EXISTS shop;
 
+
+
+
+-- Дроп бд
+
+
+
+-- + Удаление схемы
+
 -- categories
-CREATE TABLE IF NOT EXISTS product_categories (
+CREATE TABLE IF NOT EXISTS shop.product_categories (
     id SERIAL PRIMARY KEY,
     cathegory VARCHAR(50)
 );
 
 --products
-CREATE TABLE IF NOT EXISTS products (
+CREATE TABLE IF NOT EXISTS shop.products (
     id SERIAL PRIMARY KEY,
-    title VARCHAR(100),
+    src TEXT,
     description TEXT,
     price DECIMAL(10,2),
-    product_category_id INTEGER REFERENCES product_categories(id)
+    product_category_id INTEGER REFERENCES shop.product_categories(id)
 );
 --clients
 -- 3. Таблица "Клиенты"
@@ -22,7 +33,7 @@ CREATE TABLE IF NOT EXISTS products (
 -- - адрес клиента (тип данных: VARCHAR(100))
 -- - телефон клиента (тип данных: VARCHAR(20))
 
-CREATE TABLE IF NOT EXISTS clients (
+CREATE TABLE IF NOT EXISTS shop.clients (
     id SERIAL PRIMARY KEY,
     name VARCHAR(50),
     second_name VARCHAR(50),
@@ -34,10 +45,10 @@ CREATE TABLE IF NOT EXISTS clients (
 -- - id (тип данных: SERIAL PRIMARY KEY)
 -- - дата заказа (тип данных: DATE)
 -- - id клиента (тип данных: INTEGER, FOREIGN KEY REFERENCES "Клиенты"(id))
-CREATE TABLE IF NOT EXISTS orders (
+CREATE TABLE IF NOT EXISTS shop.orders (
     id SERIAL PRIMARY KEY,
     date DATE,
-    client_id INTEGER REFERENCES clients(id)
+    client_id INTEGER REFERENCES shop.clients(id)
 );
 
 -- 5. Таблица "Состав заказа"
@@ -45,10 +56,10 @@ CREATE TABLE IF NOT EXISTS orders (
 -- - id заказа (тип данных: INTEGER, FOREIGN KEY REFERENCES "Заказы"(id))
 -- - id товара (тип данных: INTEGER, FOREIGN KEY REFERENCES "Товары"(id))
 -- - количество товара (тип данных: INTEGER)
-CREATE TABLE IF NOT EXISTS order_lists (
+CREATE TABLE IF NOT EXISTS shop.order_lists (
     id SERIAL PRIMARY KEY,
-    order_id INTEGER REFERENCES orders(id),
-    product_id INTEGER REFERENCES products(id),
+    order_id INTEGER REFERENCES shop.orders(id),
+    product_id INTEGER REFERENCES shop.products(id),
     count INTEGER
 );
 
@@ -56,9 +67,9 @@ CREATE TABLE IF NOT EXISTS order_lists (
 -- - id (тип данных: SERIAL PRIMARY KEY)
 -- - название товара (тип данных: VARCHAR(100))
 -- - количество товара на складе (тип данных: INTEGER)
-CREATE TABLE IF NOT EXISTS stock (
+CREATE TABLE IF NOT EXISTS shop.stock (
     id SERIAL PRIMARY KEY,
-    product_name INTEGER REFERENCES products(id),
+    product_name INTEGER REFERENCES shop.products(id),
     stock_count INTEGER
 );
 
@@ -67,7 +78,7 @@ CREATE TABLE IF NOT EXISTS stock (
 -- - название компании (тип данных: VARCHAR(100))
 -- - адрес компании (тип данных: VARCHAR(100))
 -- - телефон компании (тип данных: VARCHAR(20))
-CREATE TABLE IF NOT EXISTS suppliers (
+CREATE TABLE IF NOT EXISTS shop.suppliers (
     id SERIAL PRIMARY KEY,
     company_name VARCHAR(100),
     company_address VARCHAR(100),
@@ -78,10 +89,10 @@ CREATE TABLE IF NOT EXISTS suppliers (
 -- - id (тип данных: SERIAL PRIMARY KEY)
 -- - дата поставки (тип данных: DATE)
 -- - id поставщика (тип данных: INTEGER, FOREIGN KEY REFERENCES "Поставщики"(id))
-CREATE TABLE IF NOT EXISTS supplies (
+CREATE TABLE IF NOT EXISTS shop.supplies (
     id SERIAL PRIMARY KEY,
     delievery DATE,
-    supplier_id INTEGER REFERENCES suppliers(id)
+    supplier_id INTEGER REFERENCES shop.suppliers(id)
 );
 
 -- 9. Таблица "Состав поставки"
@@ -89,10 +100,10 @@ CREATE TABLE IF NOT EXISTS supplies (
 -- - id поставки (тип данных: INTEGER, FOREIGN KEY REFERENCES "Поставки"(id))
 -- - id товара (тип данных: INTEGER, FOREIGN KEY REFERENCES "Товары"(id))
 -- - количество товара (тип данных: INTEGER)
-CREATE TABLE IF NOT EXISTS delivery_scopes (
+CREATE TABLE IF NOT EXISTS shop.delivery_scopes (
     id SERIAL PRIMARY KEY,
-    supply_id INTEGER REFERENCES supplies(id),
-    product_id INTEGER REFERENCES products(id),
+    supply_id INTEGER REFERENCES shop.supplies(id),
+    product_id INTEGER REFERENCES shop.products(id),
     count INTEGER
 );
 
@@ -101,9 +112,9 @@ CREATE TABLE IF NOT EXISTS delivery_scopes (
 -- - дата продажи (тип данных: DATE)
 -- - id товара (тип данных: INTEGER, FOREIGN KEY REFERENCES "Товары"(id))
 -- - количество товара (тип данных: INTEGER)
-CREATE TABLE IF NOT EXISTS sales (
+CREATE TABLE IF NOT EXISTS shop.sales (
     id SERIAL PRIMARY KEY,
     sell_date DATE,
-    product_id INTEGER REFERENCES products(id),
+    product_id INTEGER REFERENCES shop.products(id),
     count INTEGER
 );

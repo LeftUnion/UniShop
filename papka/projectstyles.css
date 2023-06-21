@@ -1,0 +1,424 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+html {
+    min-width: 550px;
+    position: relative;
+    }
+a{
+    text-decoration: none;
+}
+:root{
+    --bg-color: #F8D9CF;
+    --text-color: rgb(51, 49, 33);
+    --main-color: #E16036;
+}
+body{
+    min-height: 100vh;
+    background: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+}
+.main {
+    margin: 100px;
+}
+header{
+    position: absolute;
+    padding: 28px 12%;
+    background: transparent;
+    width: 100%;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    z-index: 7777;
+    justify-content: space-between;
+    transition: all 0.5s ease;
+}
+.logo{
+    display: flex;
+    align-items: center;
+}
+.logo i{
+    color: var(--main-color);
+    font-size: 28px;
+    margin-right: 3px;
+}
+.logo span{
+    color: var(--text-color);
+    font-size: 150%;
+    font-weight: 600;
+}
+.navigationbar{
+    list-style: none;
+    list-style-type: none;
+    display: flex;
+}
+.navigationbar a{
+    color: var(--text-color);
+    font-size: 110%;
+    font-weight: 500;
+    padding: 5px 0px;
+    margin: 0px 30px;
+    transition: all 0.5s ease;
+}
+.itemsection:hover{
+    color: var(--main-color);
+    cursor: pointer;
+}
+.itemsection{
+    color: var(--text-color);
+    font-size: 110%;
+    font-weight: 500;
+    padding: 5px 0px;
+    margin: 0px 30px;
+    transition: all 0.5s ease;
+}
+.currenttab{
+    border: solid;
+    border-radius: 30px;
+    border-color: var(--main-color);
+    background-color: var(--main-color);
+    color: var(--bg-color);
+    padding: 10px 20px !important;
+}
+.currenttab:hover{
+    color: var(--text-color) !important;
+}
+.navigationbar a:hover{
+    color: var(--main-color);
+}
+.navigationbar a.current{
+    color: var(--main-color)
+}
+.profilebar{
+    display: flex;
+    align-items: center;
+}
+.profilebar a{
+    margin-right: 25px;
+    margin-left: 10px;
+    color: var(--text-color);
+    font-size: 110%;
+    font-weight: 500;
+    transition: all 0.5s ease;
+}
+.user{
+    display: flex;
+    align-items: center;
+}
+.user i{
+    color: var(--main-color);
+    font-size: 28px;
+    margin-right: 7px;
+}
+.profilebar a:hover{
+    color: var(--main-color);
+}
+.shopitem img{
+    border: solid;
+    border-color: var(--main-color);
+    border-radius: 2px;
+    border-width: 1.1px;
+    width: 100%;
+    height: auto;
+}
+#menuicon {
+    font-size: 35px;
+    color: var(--text-color);
+    cursor: pointer;
+    z-index: 9999;
+    display: none;
+}
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10050;
+    display: none;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, .5)
+}
+
+.modal__dialog {
+    max-width: 500px;
+    margin: 40px auto
+}
+
+.modal__content {
+    position: relative;
+    width: 100%;
+    padding: 40px;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-radius: 4px;
+    max-height: 80vh;
+    overflow-y: auto
+}
+
+.modal__close {
+    position: absolute;
+    top: 8px;
+    right: 14px;
+    font-size: 30px;
+    color: #000;
+    opacity: .5;
+    font-weight: 700;
+    border: none;
+    background-color: transparent;
+    cursor: pointer
+}
+
+.modal__title {
+    text-align: center;
+    font-size: 22px;
+    text-transform: uppercase
+}
+
+.modal__input {
+    display: block;
+    margin: 20px auto 20px auto;
+    width: 280px;
+    height: 50px;
+    background: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, .2);
+    border: none;
+    font-size: 18px;
+    text-align: center;
+    padding: 0 20px;
+    outline: 0
+}
+
+.modal .btn {
+    display: block;
+    width: 280px;
+    margin: 0 auto
+}
+.line-menu {
+    display: flex;
+    position: absolute;
+    flex-direction: row;
+    padding: 28px 12%;
+    background: transparent;
+    width: 100%;
+    top: 50px;
+    align-items: center;
+    justify-content: space-around;
+    transition: all 0.5s ease;
+    list-style: none;
+}
+.buy{
+    margin-bottom: 10px;
+    margin-top: 5px;
+    background-color: var(--main-color);
+    border-radius: 4px;
+    border-style: none;
+    padding: 3px;
+    color: var(--bg-color);
+}
+.buy:before {
+    content: 'В корзину';
+}
+.buy:hover{
+    color: var(--text-color);
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+.catalog{
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    padding: 28px 12%;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    top: 50px;
+}
+.shopitem{
+    position: relative;
+    width:275px;
+    height:300px;
+    margin:15px;
+    box-sizing: border-box;
+    float: left;
+    text-align: center;
+    cursor: pointer;
+    padding: 10px 10px 0px 10px;
+    border: solid;
+    border-width: 1.5px;
+    border-radius: 5px;
+    border-color: var(--main-color);
+    background-color: #fff;
+}
+.shopitem:hover{
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16),
+    0 3px 6px rgba(0,0,0,0.23);
+    transform: translate(0px, -8px);
+    transition: all 0.3s ease;
+}
+.active{
+    display: block;
+}
+.disabled{
+    display: none;
+}
+@media (max-width: 1280px){
+    header{
+        padding: 14px 2%;
+        transition: 0.2s;
+    }
+    .navigationbar a{
+        padding: 5px 0;
+        margin: 0px 20px;
+    }
+}
+.footer{
+    background-color: var(--text-color);
+    padding: 70px 0;
+    margin-top: auto;
+}
+.footerlist{
+    list-style: none;
+}
+.container{
+    max-width: 1170px;
+    margin: auto;
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+.footer-col{
+    width: 25%;
+    padding: 0 15px;
+}
+.footer-col h4{
+    font-size: 18px;
+    color: var(--bg-color);
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    position: relative;
+    font-weight: 500;
+}
+.footer-col h4::before{
+    content:'';
+    position: absolute;
+    left:0;
+    bottom: -10px;
+    box-sizing: border-box;
+    height: 2px;
+    width: 50px;
+    background-color: var(--text-color);
+}
+.footer-col ul li:not(:last-child){
+    margin-bottom: 10px;
+}
+.footer-col ul li a{
+    font-size: 16px;
+    text-transform: capitalize;
+    text-decoration: none;
+    display: block;
+    font-weight: 300;
+    color: #bbbbbb;
+    transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+    color: #fff;
+    padding-left: 8px;
+}
+.footer-col .socials a{
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(255,255,255,0.2);
+    margin: 0 10px 10px 0;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+.footer-col .socials a:hover{
+    color: #24262b;
+    background-color: #fff;
+}
+@media (max-width: 1090px){
+    #menuicon{
+        display: block;
+    }
+    .navigationbar{
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        width: 270px;
+        height: 375%;
+        background: var(--main-color);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        border-radius: 10px;
+        transition: all 0.5s ease;
+    }
+    .navigationbar a{
+        display: block;
+        margin: 12px 0;
+        padding: 0px 25px;
+        transition: all 0.5s ease;
+    }
+    .navigationbar a:hover{
+        color: var(--text-color);
+        transform: translateY(5px);
+    }
+    .navigationbar a.current{
+        color:var(--text-color);
+    }
+    .navigationbar.open{
+        right: 2%;
+    }
+    .optional{
+        display: none;
+    }
+}
+@media (max-width: 900px) {
+    .line-menu{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .optional {
+        display: block;
+    }
+    .line-menu li{
+        margin:5px;
+    }
+    .catalog{
+        top: 150px;
+    }
+    .footer{
+        margin-top: 100px;
+    }
+}
+@media(max-width: 767px) {
+    .footer-col{
+        width: 50%;
+        margin-top: 100px;
+        margin-bottom: 30px;
+    }
+    .footer{
+        margin-top: 100px;
+    }
+}
+@media(max-width: 574px) {
+    .footer-col{
+        width: 100%;
+        margin-bottom: 30px;
+    }
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="projectstyles.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
+    <title>Supellex</title>
+</head>
+
+<body>
+    <header>
+        <a href="#" class="logo"> <i class="ri-home-gear-fill"></i> <span>Supellex</span> </a>
+        <ul class="navigationbar">
+            <li><a href="#" class="navbaritem"> Главная </a> </li>
+            <li><a href="#" class="navbaritem"> Доставка </a> </li>
+            <li><a href="#" class="navbaritem"> Контакты </a> </li>
+            <li><a href="#" class="navbaritem"> Адреса </a> </li>
+            <li><a href="#" class="navbaritem"> Акции </a> </li>
+        </ul>
+        <div class="profilebar">
+            <a href="#" class="cart"> <i class="ri-shopping-cart-line"></i>Корзина </a>
+            <div class="bx bx-menu" id="menuicon"></div>
+        </div>
+    </header>
+    <div class="classcontainer">
+        <div class="line-menu">
+            <div class="itemsection">Столы</div>
+            <div class="itemsection">Кухни</div>
+            <div class="itemsection">Кровати</div>
+            <div class="optional itemsection">Диваны</div>
+            <div class="optional itemsection">Шкафы</div>
+            <div class="itemsection">Все товары</div>
+        </div>
+    </div>
+    <main class="main">
+        <div class="catalog" data-catalog="tables"></div>
+        <div class="catalog" data-catalog="kitchens"></div>
+        <div class="catalog" data-catalog="beds"></div>
+        <div class="catalog" data-catalog="sofas"></div>
+        <div class="catalog" data-catalog="closets"></div>
+        <div class="catalog" data-catalog="completegoods"></div>
+    </main>
+    <div class="modal">
+        <div class="modal__dialog">
+            <div class="modal__content">
+                <form action="#">
+                    <div class="modal__close" data-close>&times;</div>
+                    <div class="modal__title">Закажите выбранные товары прямо сейчас!</div>
+                    <input required placeholder="Ваше имя" name="name" type="text" class="modal__input">
+                    <input required placeholder="Ваша фамилия" name="second_name" type="text" class="modal__input">
+                    <input required placeholder="Ваш номер телефона" name="phone" type="tel" class="modal__input">
+                    <input required placeholder="Ваш адрес" name="address" type="text" class="modal__input">
+                    <button class="btn btn_dark btn_min">Заказать</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Компания</h4>
+                    <ul class="footerlist">
+                        <li><a href="#">О нас</a></li>
+                        <li><a href="#">Наши услуги</a></li>
+                        <li><a href="#">Политика конфиденциальности</a></li>
+                        <li><a href="#">Программа лояльности</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Поддержка</h4>
+                    <ul class="footerlist">
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Доставка</a></li>
+                        <li><a href="#">Возврат</a></li>
+                        <li><a href="#">Статус заказа</a></li>
+                        <li><a href="#">Способы оплаты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Онлайн-магазин</h4>
+                    <ul class="footerlist">
+                        <li><a href="#">Интерьер</a></li>
+                        <li><a href="#">Кухни</a></li>
+                        <li><a href="#">Сады и дачи</a></li>
+                        <li><a href="#">Другое</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Следите за нами</h4>
+                    <div class="socials">
+                        <a href="#"><i class="ri-facebook-circle-fill"></i></a>
+                        <a href="#"><i class="ri-twitter-fill"></i></i></a>
+                        <a href="#"><i class="ri-instagram-fill"></i></i></a>
+                        <a href="#"><i class="ri-linkedin-box-fill"></i></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript" src="app.js"></script>
+</body>
+
+</html>
