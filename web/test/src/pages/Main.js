@@ -1,0 +1,86 @@
+import {ShopItem} from '../components/shopitem'
+
+
+export function MainPage() {
+    return (
+        <>
+            <div className='mainpage-container'>
+                <ShopItem 
+                name={"name"}
+                price={"2003"}
+                src={"ss"}
+                />
+                <ShopItem 
+                name={"name"}
+                price={"2003"}
+                src={"ss"}
+                />
+                <ShopItem 
+                name={"name"}
+                price={"2003"}
+                src={"ss"}
+                />
+                <ShopItem 
+                name={"name"}
+                price={"2003"}
+                src={"ss"}
+                />
+                <ShopItem 
+                name={"name"}
+                price={"2003"}
+                src={"ss"}
+                />
+                <ShopItem 
+                name={"name"}
+                price={"2003"}
+                src={"ss"}
+                />
+                <ShopItem 
+                name={"name"}
+                price={"2003"}
+                src={"ss"}
+                />
+                <ShopItem 
+                name={"name"}
+                price={"2003"}
+                src={"ss"}
+                />
+                <ShopItem 
+                name={"name"}
+                price={"2003"}
+                src={"ss"}
+                />
+                <ShopItem 
+                name={"name"}
+                price={"2003"}
+                src={"ss"}
+                />
+                <ShopItem 
+                name={"name"}
+                price={"2003"}
+                src={"ss"}
+                />
+                <ShopItem 
+                name={"name"}
+                price={"2003"}
+                src={"ss"}
+                />
+                <ShopItem 
+                name={"name"}
+                price={"2003"}
+                src={"ss"}
+                />
+                <ShopItem 
+                name={"name"}
+                price={"2003"}
+                src={"ss"}
+                />
+                <ShopItem 
+                name={"name"}
+                price={"2003"}
+                src={"ss"}
+                />
+            </div>
+        </>
+    )
+}

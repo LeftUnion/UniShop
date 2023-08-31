@@ -1,5 +1,3 @@
-// window.addEventListener('DOMContentLoaded', () => {
-
 const menu = document.querySelector('#menuicon'),
     navbar = document.querySelector('.navigationbar'),
     catalog = document.querySelectorAll('.catalog'),
@@ -22,15 +20,14 @@ class MenuCard {
         const element = document.createElement('div');
         element.innerHTML = `<div class="shopitem">
             <img src=${this.src}>
-            <h3> ${this.name} </h3>
+            <h3 class="shopitem_name"> ${this.name} </h3>
             <h6> ${this.price}&#8381;</h6>
             <button class="buy"></button>
             </div>`;
         this.parent.append(element);
     }
 }
-// Пример работы функционала: new MenuCard(...).render(); аттрибуты кроме price вводятся в формате строки с кавычками!
-// new MenuCard("https://sun9-79.userapi.com/impg/LSsulmUtDsFgXzmivjGosT4WrUgPhQ7NYI9Okw/tSz6YH6_HH8.jpg?size=799x800&quality=95&sign=62eaad51b31a51c8f9cffad9872355c8&type=album", 322, "МУДРОЕ ДРЕВО", 'tables').render();
+
 // Переключение табов
 function removeAllChildNodes(parent) {
     while (parent.firstChild) {
@@ -47,22 +44,35 @@ function hideContent() {
         item.classList.remove('currenttab');
     })
 };
-function sendRequest(catalogSelector) {
-    const catalogRequest = new XMLHttpRequest();
-    let url = new URL('https://localhost:7204/api/' + catalogSelector);
-    catalogRequest.open('GET', url);
-    // catalogRequest.setRequestHeader("Access-Control-Allow-Origin", "null");
-    catalogRequest.send();
-    catalogRequest.onload = function() {
-        console.log('bebus')
-        let data = JSON.parse(catalogRequest.response);
-        console.log(data);
-        for (let i of data) {
-            new MenuCard(i.src, i.price, i.description, catalogSelector).render();
-        }
-    }
 
+
+// function - конечное действие => Отправляет запрос(arg) => json
+// 1) Подумать все ли функции названы правильно и выполняют конечное действие
+// 2) Должны ли функции возвращать занчения
+// 
+
+function GetFurnitureRequest(catalogSelector) {
+    const url = new URL('https://localhost:7204/api/' + catalogSelector);
+    let promise = fetch(url);
+    var data;
+    promise.then(response => response.json);
 }
+
+// async function GetFurnitureRequest(catalogSelector) { 
+//     const url = new URL('https://localhost:7204/api/' + catalogSelector);
+//     const response = await fetch(url);
+//     const data = await response.json();
+
+//     for (let i of data) {
+//         if(i == null)
+//             break;
+
+//         new MenuCard(i.src, i.price, i.description, catalogSelector).render();
+//     }
+//     // return data; TODO 
+// }
+
+
 const catalogArr = [];
 catalogArr[0] = 'tables';
 catalogArr[1] = 'kitchens';
@@ -75,7 +85,7 @@ function showContent(i = 0) {
     catalog[i].classList.add('active');
     catalog[i].classList.remove('disabled');
     let catArr = catalogArr[i];
-    sendRequest(catArr);
+    console.log(GetFurnitureRequest(catArr));
 }
 hideContent();
 showContent();
@@ -92,33 +102,73 @@ sectionContainer.addEventListener('click', (event) => {
 })
 
 // Взаимодействие с корзиной
-const buyButton = document.querySelectorAll('.buy'),   
-      cart = document.querySelector('.cart');
-      modal = document.querySelector('.modal');
-      cart.addEventListener('click', openCart);
+const buyButton = document.querySelectorAll('.buy'),
+    cart = document.querySelector('.cart'),
+    modal = document.querySelector('.modal'),
+    ul = document.querySelector('.cart_list');
+function openCart() {
+    modal.classList.add('active');
+    modal.classList.remove('disabled');
+    document.body.style.overflow = 'hidden';
+    cartListNames.forEach(item => {
+        let i = 0;
+        let li = document.createElement('li');
+        li.appendChild(document.createTextNode(`${item}, ${cartListPrices[i]}`));
+        ul.appendChild(li);
+        i++;
+    })
+}
+function closeCart() {
+    modal.classList.add('disabled');
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
 
-    function closeCart() {
-        modal.classList.add('disabled');
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
+}
+cart.addEventListener('click', openCart);
+modal.addEventListener('click', (e) => {
+    if (e.target === modal || e.target.getAttribute('data-close') == "") {
+        closeCart();
     }
-
-    function openCart() {
-        modal.classList.add('active');
-        modal.classList.remove('disabled');
-        document.body.style.overflow = 'hidden';
-        clearInterval(modalTimerId);
+});
+document.addEventListener('keydown', (e) => {
+    if (e.code === "Escape" && modal.classList.contains('active')) {
+        closeCart();
     }
+});
 
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal || e.target.getAttribute('data-close') == "") {
-            closeCart();
-        }
+// Покупка в корзине
+const form = document.querySelector('.form');
+function postData() {
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const formData = new FormData(form);
+        const object = {};
+        formData.forEach(function (value, key) {
+            object[key] = value;
+        });
+        fetch('url', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(object)
+        }).then(data => {
+            console.log(data);
+        }).catch(() => {
+            console.error('Ошибка');
+        }).finally(() => {
+            form.reset();
+        });
     });
+}
+// Добавление предметов в корзину
 
-    document.addEventListener('keydown', (e) => {
-        if (e.code === "Escape" && modal.classList.contains('active')) { 
-            closeCart();
-        }
-    });
-// });
+let cartListNames = [],
+    cartListPrices = [];
+buyButton.forEach(item => {
+    item.addEventListener('click', (e) => {
+        const targetItem = e.target.parentElement;
+        cartListNames.push(targetItem.children[1].innerHTML);
+        cartListPrices.push(targetItem.children[2].innerHTML);
+    })
+})

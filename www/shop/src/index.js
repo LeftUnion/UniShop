@@ -43,6 +43,29 @@ import App from './App';
 //     addedItem.appendChild(addedItemButton);
 //     catalog.append(addedItem);
 // }
+function postData() {
+  form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const formData = new FormData(form);
+      const object = {};
+      formData.forEach(function (value, key) {
+          object[key] = value;
+      });
+      fetch('url', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(object)
+      }).then(data => {
+          console.log(data);
+      }).catch(() => {
+          console.error('Ошибка');
+      }).finally(() => {
+          form.reset();
+      });
+  });
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
