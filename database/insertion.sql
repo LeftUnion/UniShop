@@ -15,18 +15,18 @@ INSERT INTO shop.product_categories(cathegory) VALUES('tables');
 
 
 -- insert kitchen
-INSERT INTO shop.products(src, description, price, product_category_id) VALUES('https://hoff.ru/upload/iblock/f67/f67e63b98034ebe823e8c93fe1a48910.jpg', 'Кухонный гарнитур Лина 2 м', 26399, 1);
-INSERT INTO shop.products(src, description, price, product_category_id) VALUES('https://hoff.ru/upload/hoff_resize/hoff-images/508/991/6/86c2c734cc7b86eda4db8ab56dcf7637.jpg/666x444_85.webp', 'Кухонный гарнитур Стелла 2,4 м', 22999 , 1);
-INSERT INTO shop.products(src, description, price, product_category_id) VALUES('https://hoff.ru/upload/iblock/a56/a5616521c341f483eb8eb16735114fbc.jpg', 'Кухонный гарнитур Лион', 17999, 1);
-INSERT INTO shop.products(src, description, price, product_category_id) VALUES('https://hoff.ru/upload/iblock/aa0/aa0f0ca8be4c5c1e5c15914fe8a2d5b9.jpg', 'Кухонный гарнитур Сити 2,4 м', 21999, 1);
-INSERT INTO shop.products(src, description, price, product_category_id) VALUES('https://hoff.ru/upload/iblock/39b/39b1031aae0c1cc55d3d5288279c62ad.jpg', 'Кухонный гарнитур КГ-2 2,0 м', 10999, 1);
-INSERT INTO shop.products(src, description, price, product_category_id) VALUES('https://hoff.ru/upload/iblock/6d4/6d486039b7ec7963cc8d8928964901d0.jpg', 'Кухонный гарнитур Токио 1,6 м', 10499, 1);
-INSERT INTO shop.products(src, description, price, product_category_id) VALUES('https://hoff.ru/upload/iblock/799/7993cae02162e82c3e3dc59ea145c843.jpg', 'Кухонный гарнитур Белла 2,4 м ', 37999, 1);
-INSERT INTO shop.products(src, description, price, product_category_id) VALUES('https://hoff.ru/upload/iblock/360/3601da48ba258ef7f6cdc47569c1ae51.jpg', 'Кухонный гарнитур Токио 1,2 м', 7999, 1);
-INSERT INTO shop.products(src, description, price, product_category_id) VALUES('https://hoff.ru/upload/iblock/6e4/6e432bf55b479484a0439431e46bd817.jpg', 'Кухонный гарнитур Эстель 2,4 м', 29999, 1);
-INSERT INTO shop.products(src, description, price, product_category_id) VALUES('https://hoff.ru/upload/iblock/69d/69dde8b933874532ab7fbf31fae12994.jpg', 'Кухонный гарнитур Лион 1,8 м', 17999, 1);
-INSERT INTO shop.products(src, description, price, product_category_id) VALUES('https://hoff.ru/upload/iblock/e5c/e5cf9fd29b2f7d7f43cef25f7772233d.jpg', 'Кухонный гарнитур Белла 2,4 м', 37999, 1);
-INSERT INTO shop.products(src, description, price, product_category_id) VALUES('https://hoff.ru/upload/iblock/bb7/bb74f0580eeadccc6cec84c652fc472a.jpg', 'Кухонный гарнитур Маренго 2,4 м', 38999, 1);
+INSERT INTO shop.products(src, description, price) VALUES('https://hoff.ru/upload/iblock/f67/f67e63b98034ebe823e8c93fe1a48910.jpg', 'Кухонный гарнитур Лина 2 м', 26399, 1);
+INSERT INTO shop.products(src, description, price) VALUES('https://hoff.ru/upload/hoff_resize/hoff-images/508/991/6/86c2c734cc7b86eda4db8ab56dcf7637.jpg/666x444_85.webp', 'Кухонный гарнитур Стелла 2,4 м', 22999 , 1);
+INSERT INTO shop.products(src, description, price) VALUES('https://hoff.ru/upload/iblock/a56/a5616521c341f483eb8eb16735114fbc.jpg', 'Кухонный гарнитур Лион', 17999, 1);
+INSERT INTO shop.products(src, description, price) VALUES('https://hoff.ru/upload/iblock/aa0/aa0f0ca8be4c5c1e5c15914fe8a2d5b9.jpg', 'Кухонный гарнитур Сити 2,4 м', 21999, 1);
+INSERT INTO shop.products(src, description, price) VALUES('https://hoff.ru/upload/iblock/39b/39b1031aae0c1cc55d3d5288279c62ad.jpg', 'Кухонный гарнитур КГ-2 2,0 м', 10999, 1);
+INSERT INTO shop.products(src, description, price) VALUES('https://hoff.ru/upload/iblock/6d4/6d486039b7ec7963cc8d8928964901d0.jpg', 'Кухонный гарнитур Токио 1,6 м', 10499, 1);
+INSERT INTO shop.products(src, description, price) VALUES('https://hoff.ru/upload/iblock/799/7993cae02162e82c3e3dc59ea145c843.jpg', 'Кухонный гарнитур Белла 2,4 м ', 37999, 1);
+INSERT INTO shop.products(src, description, price) VALUES('https://hoff.ru/upload/iblock/360/3601da48ba258ef7f6cdc47569c1ae51.jpg', 'Кухонный гарнитур Токио 1,2 м', 7999, 1);
+INSERT INTO shop.products(src, description, price) VALUES('https://hoff.ru/upload/iblock/6e4/6e432bf55b479484a0439431e46bd817.jpg', 'Кухонный гарнитур Эстель 2,4 м', 29999, 1);
+INSERT INTO shop.products(src, description, price) VALUES('https://hoff.ru/upload/iblock/69d/69dde8b933874532ab7fbf31fae12994.jpg', 'Кухонный гарнитур Лион 1,8 м', 17999, 1);
+INSERT INTO shop.products(src, description, price) VALUES('https://hoff.ru/upload/iblock/e5c/e5cf9fd29b2f7d7f43cef25f7772233d.jpg', 'Кухонный гарнитур Белла 2,4 м', 37999, 1);
+INSERT INTO shop.products(src, description, price) VALUES('https://hoff.ru/upload/iblock/bb7/bb74f0580eeadccc6cec84c652fc472a.jpg', 'Кухонный гарнитур Маренго 2,4 м', 38999, 1);
 
 -- insert beds
 INSERT INTO shop.products(src, description, price, product_category_id) VALUES('https://hoff.ru/upload/hoff_resize/hoff-images/223/107/2/e4148dd6221c472ba8459e9357e140cd.jpg/666x444_85.webp', 'Каркас кровати Соренто 90х200 см ', 4999, 2);

@@ -9,6 +9,8 @@ import { Header } from './header';
 import { Footer } from './footer'
 import { Delivery} from './pages/delivery'
 import { MainPage } from './pages/Main';
+import { Cart } from './pages/cart';
+import { AboutUs, Contacts } from './pages/contacts';
 
  function App() {
   return (
@@ -18,8 +20,9 @@ import { MainPage } from './pages/Main';
       <Router >
         <Routes >
           <Route path="/" element={<MainPage/>} />
-          {/* <Route path="/home" Component={<h2>SOME NEW COMPONENT</h2>}/>
-          <Route path="/contacts" Component={<h2>SOME NEW COMPONENT</h2>}/> */}
+          <Route path="/cart" element={<Cart/>} />
+          <Route path="/contacts" element={<Contacts/>} />
+          <Route path='/delivery' element={<Delivery/>}/>
         </Routes>
       </Router>
       </div>

@@ -11,7 +11,7 @@ export function Header() {
                 <a href='/'>Главная</a>
                 <a href='/delivery'>Доставка</a>
                 <a href='/about_us'>О нас</a>
-                <a href='/address'>Контакты</a>
+                <a href='/contacts'>Контакты</a>
             </div>
             <div className="auth">
                 <a href='/cart'>Корзина</a>

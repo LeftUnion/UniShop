@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "hA5T9f3WBZx7+/tfeM0A3MA974XJ1pkN+acElSEphY9unyiuSt693KkOSzdvDoVMTvNa82Hgbf5S8RtR8UrWkw==",
+  "dgSpecHash": "O5hXmkmm9WQNSpNnNMohro7X1UcIxCdzchBtQZbFlR8gasc91l7GHUbhDge333/4TUqiiV6rB5LV5otBlxyvbQ==",
   "success": true,
   "projectFilePath": "/home/left/go/src/local/ShopShop/backend/backend.csproj",
   "expectedPackageFiles": [
@@ -23,7 +23,9 @@
     "/home/left/.nuget/packages/microsoft.extensions.options/7.0.0/microsoft.extensions.options.7.0.0.nupkg.sha512",
     "/home/left/.nuget/packages/microsoft.extensions.primitives/7.0.0/microsoft.extensions.primitives.7.0.0.nupkg.sha512",
     "/home/left/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
+    "/home/left/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512",
     "/home/left/.nuget/packages/npgsql/7.0.4/npgsql.7.0.4.nupkg.sha512",
+    "/home/left/.nuget/packages/npgsql.entityframeworkcore.postgresql/7.0.4/npgsql.entityframeworkcore.postgresql.7.0.4.nupkg.sha512",
     "/home/left/.nuget/packages/sqlitepclraw.bundle_e_sqlite3/2.1.4/sqlitepclraw.bundle_e_sqlite3.2.1.4.nupkg.sha512",
     "/home/left/.nuget/packages/sqlitepclraw.core/2.1.4/sqlitepclraw.core.2.1.4.nupkg.sha512",
     "/home/left/.nuget/packages/sqlitepclraw.lib.e_sqlite3/2.1.4/sqlitepclraw.lib.e_sqlite3.2.1.4.nupkg.sha512",
