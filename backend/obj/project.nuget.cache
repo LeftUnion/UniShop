@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "O5hXmkmm9WQNSpNnNMohro7X1UcIxCdzchBtQZbFlR8gasc91l7GHUbhDge333/4TUqiiV6rB5LV5otBlxyvbQ==",
+  "dgSpecHash": "Q1ChV90KH5WpTeLkXL2jU1Y0bzBy+xTQb+iOd+PzneaT6e6wjOp4ywBET377DadpWMABqvT1rGzE1A+KRaapPQ==",
   "success": true,
   "projectFilePath": "/home/left/go/src/local/ShopShop/backend/backend.csproj",
   "expectedPackageFiles": [
@@ -37,7 +37,8 @@
     "/home/left/.nuget/packages/system.memory/4.5.3/system.memory.4.5.3.nupkg.sha512",
     "/home/left/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "/home/left/.nuget/packages/system.text.encodings.web/7.0.0/system.text.encodings.web.7.0.0.nupkg.sha512",
-    "/home/left/.nuget/packages/system.text.json/7.0.0/system.text.json.7.0.0.nupkg.sha512"
+    "/home/left/.nuget/packages/system.text.json/7.0.0/system.text.json.7.0.0.nupkg.sha512",
+    "/home/left/.nuget/packages/telegram.bot/19.0.0/telegram.bot.19.0.0.nupkg.sha512"
   ],
   "logs": []
 }

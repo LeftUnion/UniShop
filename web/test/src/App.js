@@ -10,7 +10,8 @@ import { Footer } from './footer'
 import { Delivery} from './pages/delivery'
 import { MainPage } from './pages/Main';
 import { Cart } from './pages/cart';
-import { AboutUs, Contacts } from './pages/contacts';
+import { Contacts } from './pages/contacts';
+import { AboutUs } from './pages/about_us';
 
  function App() {
   return (
@@ -23,6 +24,9 @@ import { AboutUs, Contacts } from './pages/contacts';
           <Route path="/cart" element={<Cart/>} />
           <Route path="/contacts" element={<Contacts/>} />
           <Route path='/delivery' element={<Delivery/>}/>
+          <Route path='/about_us' element={<AboutUs/>}/>
+          <Route path='/sale' element={<Delivery/>}/>
+          <Route path='/other' element={<Delivery/>}/>
         </Routes>
       </Router>
       </div>

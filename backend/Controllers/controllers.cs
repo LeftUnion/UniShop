@@ -21,7 +21,8 @@ namespace backend.Controllers;
         [HttpGet]
         public JsonResult Get()
         {
-            return new JsonResult(Products.GetAll()); 
+            return new JsonResult(Service.GetFurniture());
+            // return new JsonResult(Products.GetAll()); 
         }
 
     }
@@ -59,7 +60,7 @@ namespace backend.Controllers;
                 using (StreamReader reader = new StreamReader(Request.Body))
                 {
                     string requestBody = await reader.ReadToEndAsync();
-
+                    Console.WriteLine(requestBody);
                     ClientRequest myModel = JsonConvert.DeserializeObject<ClientRequest>(requestBody);
 
                     Service.MakeRequest(req: myModel);
@@ -72,6 +73,23 @@ namespace backend.Controllers;
                 return BadRequest("Ошибка при обработке запроса: " + ex.Message);
             }
         }
+    }
+
+    [Route("/api/addresses")]
+    public class AddressesController : ControllerBase
+    {
+        private IFurnitureService Service { get; set; }
+        public AddressesController(IFurnitureService service)
+        {
+            Service = service;
+        }
+
+        [HttpGet]
+        public JsonResult Get()
+        {
+            return new JsonResult(Service.GetAddresses());
+        }
+
     }
 
 

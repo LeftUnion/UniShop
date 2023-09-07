@@ -3,14 +3,6 @@ DROP SCHEMA IF EXISTS shop CASCADE;
 CREATE SCHEMA IF NOT EXISTS shop;
 
 
-
-
--- Дроп бд
-
-
-
--- + Удаление схемы
-
 -- categories
 CREATE TABLE IF NOT EXISTS shop.product_categories (
     id SERIAL PRIMARY KEY,
@@ -25,13 +17,14 @@ CREATE TABLE IF NOT EXISTS shop.products (
     price DECIMAL(10,2),
     product_category_id INTEGER REFERENCES shop.product_categories(id)
 );
---clients
--- 3. Таблица "Клиенты"
--- - id (тип данных: SERIAL PRIMARY KEY)
--- - имя клиента (тип данных: VARCHAR(50))
--- - фамилия клиента (тип данных: VARCHAR(50))
--- - адрес клиента (тип данных: VARCHAR(100))
--- - телефон клиента (тип данных: VARCHAR(20))
+
+--address
+CREATE TABLE IF NOT EXISTS shop.addresses (
+    id SERIAL PRIMARY KEY,
+    town TEXT.
+    address TEXT,
+    comment TEXT
+);
 
 CREATE TABLE IF NOT EXISTS shop.clients (
     id SERIAL PRIMARY KEY,

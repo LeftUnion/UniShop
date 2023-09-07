@@ -1,13 +1,21 @@
+using System.Xml.Serialization;
+using Microsoft.AspNetCore.Mvc;
+using Telegram.Bot;
+using Telegram.Bot.Types;
+using TelegramBotExperiments;
+
 public class FurnitureService : IFurnitureService  {
 
+    private static Telega Bot = new Telega();
     private IBaseRepository<Product> Products { get; set; }
     private IBaseRepository<Client> Clients { get; set; }
+    private IBaseRepository<Address> Addresses { get; set; }
     private IBaseRepository<ClientRequest> Requests { get; set; }
     
-    // FurnitureService()
 
-    public FurnitureService(IBaseRepository<Client> clients, IBaseRepository<ClientRequest> requests, IBaseRepository<Product> product)
+    public FurnitureService(IBaseRepository<Client> clients, IBaseRepository<Address> address, IBaseRepository<ClientRequest> requests, IBaseRepository<Product> product)
         {
+            Addresses = address;
             Products = product;
             Requests = requests;
             Clients = clients;
@@ -16,7 +24,6 @@ public class FurnitureService : IFurnitureService  {
     public List<Product> GetFurniture() 
     {
         List<Product> products = Products.GetAll();
-        Console.Write(products);
         return products;
     }
     public void MakeOrder(Product[] product, Client client) {
@@ -24,5 +31,16 @@ public class FurnitureService : IFurnitureService  {
     }
     public void MakeRequest(ClientRequest req) {
         Requests.Create(req);
+        Bot.sendMessage(FormatTelegramString(req));
+    }
+
+    public List<Address> GetAddresses() {
+        return Addresses.GetAll();
+    }
+
+    private string FormatTelegramString(ClientRequest req) {
+        string result;
+        result = string.Format("Имя:{0}\nПочта:{1}\nСообщение:{2}\n", req.name, req.email, req.message); 
+        return result;
     }
 }

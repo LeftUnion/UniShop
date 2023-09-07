@@ -12,6 +12,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
+using Telegram.Bot;
+using Telegram.Bot.Types;
 
 namespace HelloWebApi
 {
@@ -42,6 +44,7 @@ namespace HelloWebApi
             services.AddTransient<IBaseRepository<Product>, BaseRepository<Product>>();
             services.AddTransient<IBaseRepository<Client>, BaseRepository<Client>>();
             services.AddTransient<IBaseRepository<Order>, BaseRepository<Order>>();
+            services.AddTransient<IBaseRepository<Address>, BaseRepository<Address>>();
             services.AddTransient<IBaseRepository<ClientRequest>, BaseRepository<ClientRequest>>();
         }
 

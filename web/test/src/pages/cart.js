@@ -1,41 +1,39 @@
-import {ShopItem} from '../components/shopitem'
-import {useState} from 'react' 
+import { CartItem } from '../components/cartItem';
 
-async function GetFurniture() {
-    const apiURL = "http://localhost:5035/api/furniture";
-    const response = await fetch(apiURL, {
-      method: 'GET',
-      headers: {
-        "Host": "localhost:3000",
-        "Accept": "*/*"
-      }
-    });
-    const body = await response.json()
-    console.log(body)
-    return body 
+
+function GetFurniture() {
+    console.log("HERE*", localStorage.getItem('cart'))
+    const myArray = JSON.parse(localStorage.getItem('cart'));
+    console.warn(myArray);
+    return myArray || [];
+}
+
+function handleClick() {
+    // event.preventDefault()
+    localStorage.removeItem('cart')
 }
 
 export function Cart() {
-    const [myResult, setMyResult] = useState("");
-    GetFurniture().then(res => {setMyResult(res)})
+    var arr = GetFurniture()
     
+    const jsonArray = arr.map((jsonString) => JSON.parse(jsonString));
+    // console.warn(jsonArray.map((obj) => obj.name))
     return (
         <div className="cart-container">
             <div className="menu">
-                {myResult ? myResult.map((obj) => <ShopItem name={obj.description} price={obj.price} src={obj.src}/>) : 'Loading data...'}
+                {jsonArray ? jsonArray.map((obj) => <CartItem uuid={obj.id} id={obj.id} name={obj.name} price={obj.price} src={obj.src}/>) : 'Loading data...'}
             </div>
             <div className="order-wrapper">
                 <div className="order">
                     <form>
-                        <input placeholder="Name" required="" type="text" />
-                        <input name="customerEmail" placeholder="Email" type="email" />
-                        <input name="customerPhone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Phone" type="tel" />
-                        <button type="button">Заказать</button>
+                        <input placeholder="Имя" required="" type="text" />
+                        <input name="customerEmail" placeholder="Почта" type="email" />
+                        <input name="customerPhone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Номер телефона" type="tel" />
+                        <button onClick={handleClick} type="button">Заказать</button>
                     </form>
                 </div>
             </div>
         </div>
     )
-
 }
 

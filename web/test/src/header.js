@@ -9,6 +9,8 @@ export function Header() {
             </div>
             <div className="nav">
                 <a href='/'>Главная</a>
+                <a href='/sale'>Распродажа</a>
+                <a href='/other'>Другое</a>
                 <a href='/delivery'>Доставка</a>
                 <a href='/about_us'>О нас</a>
                 <a href='/contacts'>Контакты</a>
