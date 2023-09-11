@@ -6,8 +6,8 @@ function Item({who, photo}) {
 
     return (
         <div className="item">
-            <h3>{who}</h3>
             <img src={photo}/>
+            <h3>{who}</h3>
         </div>
         
     )
@@ -19,11 +19,11 @@ export function AboutUs() {
     return (
         <>
         <div className="about_us-container">
-           <h2> Some wonderful </h2>
+           <h2> Члены нашей комманды </h2>
            <div className="items-container">
-                <Item who={"Serega"} photo={"https://s3-eu-central-1.amazonaws.com/jazzpeople/wp-content/uploads/2015/11/12083132/Frank-Sinatra-141.jpg"} />
-                <Item who={"Nastya"} photo="https://api.synergytimes.ru/upload/iblock/a2b/7iu4j1demuqh82c4kk85h17hpjmk98yf.jpg" />
-                <Item who={"Ivan"} photo="https://avatars.mds.yandex.net/get-kinopoisk-image/1704946/0352714d-8d7e-4eba-87fe-a9eee33d1266/220x330" />
+                <Item who={"Сырёга"} photo={"https://s3-eu-central-1.amazonaws.com/jazzpeople/wp-content/uploads/2015/11/12083132/Frank-Sinatra-141.jpg"} />
+                <Item who={"Анастасия"} photo="https://api.synergytimes.ru/upload/iblock/a2b/7iu4j1demuqh82c4kk85h17hpjmk98yf.jpg" />
+                <Item who={"Вано"} photo="https://img51994.domkino.tv/img/2017-04-24/fmt_97_24_3f6e818cabbe93acc18d216af50dc7a0.jpg" />
            </div>
            <text>
            Добро пожаловать на наш сайт! Мы рады представить вам нашу компанию, специализирующуюся на продаже мебели. 

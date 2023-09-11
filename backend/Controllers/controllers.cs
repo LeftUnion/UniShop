@@ -27,22 +27,40 @@ namespace backend.Controllers;
 
     }
 
-    // [Route("/api/orders")]
-    // public class OrderContoller : ControllerBase
-    // {
-    //     private IFurnitureService Service { get; set; }
-    //     public OrderContoller(IFurnitureService service)
-    //     {
-    //         Service = service;
-    //     }
+    [Route("/api/order")]
+    public class OrderContoller : ControllerBase
+    {
+        private IFurnitureService Service { get; set; }
+        public OrderContoller(IFurnitureService service)
+        {
+            Service = service;
+        }
 
-    //     [HttpPost]
-    //     public JsonResult Post()
-    //     {
-    //         List<Product> value = Service.;
-    //         return new JsonResult(value); 
-    //     }
-    // }
+        [HttpPost]
+        public async Task<IActionResult> Post()
+        {
+            try
+            {
+                using (StreamReader reader = new StreamReader(Request.Body))
+                {
+                    string requestBody = await reader.ReadToEndAsync();
+                    Console.WriteLine(requestBody);
+                    dynamic jsonObj = JsonConvert.DeserializeObject(requestBody);
+                    Client myModel = JsonConvert.DeserializeObject<Client>(jsonObj.client.ToString());
+                    Product[] myModel1 = JsonConvert.DeserializeObject<Product[]>(jsonObj.products.ToString());
+                    Console.WriteLine("THERE IS MY CLIENT: {0}, {1}", myModel.email, myModel.phone);
+                    Console.WriteLine("THERE IS MY products: {0}, {1}", myModel1[0].description, myModel1[0].price);
+                    Service.MakeOrder(myModel1, myModel);
+
+                    return Ok();
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("Ошибка при обработке запроса: " + ex.Message);
+            }
+        }
+    }
     [Route("/api/requests")]
     public class RequestsContoller : ControllerBase
     {

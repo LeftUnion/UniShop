@@ -25,8 +25,8 @@ import { AboutUs } from './pages/about_us';
           <Route path="/contacts" element={<Contacts/>} />
           <Route path='/delivery' element={<Delivery/>}/>
           <Route path='/about_us' element={<AboutUs/>}/>
-          <Route path='/sale' element={<Delivery/>}/>
-          <Route path='/other' element={<Delivery/>}/>
+          {/* <Route path='/sale' element={<Delivery/>}/>
+          <Route path='/other' element={<Delivery/>}/> */}
         </Routes>
       </Router>
       </div>

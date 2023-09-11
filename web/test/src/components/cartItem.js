@@ -11,7 +11,7 @@ export function CartItem({uuid, id, src, name, price}) {
         }
 
         const jsonArray = cart.map((jsonString) => JSON.parse(jsonString));
-        const updatedCart = jsonArray.filter(obj => obj.id !== uuid);
+        const updatedCart = jsonArray.filter(obj => obj.uuid !== uuid);
         const arr = updatedCart.map((jsonString) => JSON.stringify(jsonString));
 
         console.log(updatedCart)

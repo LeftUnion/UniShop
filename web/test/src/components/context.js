@@ -1,13 +1,24 @@
-import React, { createContext, useContext, useState } from 'react';
+// import React, { createContext, useContext, useState } from 'react';
 
-export const IdContext = createContext();
+// export const UuidContext = createContext();
 
-export function IdProvider({ children }) {
-  const [id, setId] = useState(0);
+// function getContext() {
+//   let uuid = localStorage.getItem("uuid")
+//   if (uuid == undefined) {
+//     localStorage.setItem("uuid", "0")
+//   } else {
+//     localStorage.setItem("uuid", parseInt(uuid, 10) + 1)
+//   }
 
-  return (
-    <IdContext.Provider value={{ id, setId }}>
-      {children}
-    </IdContext.Provider>
-  );
-}
+//   return localStorage.getItem("uuid")
+// }
+
+// export function UuidProvider({ children }) {
+//   const [uuid, setUuid] = useState(getContext);
+
+//   return (
+//     <UuidContext.Provider value={{ uuid, setUuid }}>
+//       {children}
+//     </UuidContext.Provider>
+//   );
+// }

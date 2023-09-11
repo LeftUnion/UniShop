@@ -1,3 +1,4 @@
+// import { UuidContext } from '../components/context';
 import {ShopItem} from '../components/shopitem'
 import {useState} from 'react' 
 
@@ -16,6 +17,7 @@ async function GetFurniture() {
 }
 
 export function MainPage() {
+  // const { uuid, setUuid } = useContext(UuidContext);
     const [myResult, setMyResult] = useState("");
     
     GetFurniture().then(res => {setMyResult(res)})

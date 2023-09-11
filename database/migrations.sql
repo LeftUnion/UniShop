@@ -29,7 +29,6 @@ CREATE TABLE IF NOT EXISTS shop.addresses (
 CREATE TABLE IF NOT EXISTS shop.clients (
     id SERIAL PRIMARY KEY,
     name VARCHAR(50),
-    second_name VARCHAR(50),
     address VARCHAR(100),
     phone VARCHAR(20) UNIQUE
 );
@@ -111,3 +110,28 @@ CREATE TABLE IF NOT EXISTS shop.sales (
     product_id INTEGER REFERENCES shop.products(id),
     count INTEGER
 );
+
+
+
+---------------
+CREATE TABLE IF NOT EXISTS shop.clientsproducts (
+	id SERIAL PRIMARY KEY,
+	product_id INTEGER  references shop.products(id),
+	client_id INTEGER references shop.clients(id)
+);
+
+DROP TABLE shop.clients CASCADE
+CREATE TABLE IF NOT EXISTS shop.clients (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50),
+    email VARCHAR(100),
+    phone VARCHAR(20) 
+);
+
+SELECT * FROM shop.clientsproducts cp
+JOIN shop.products p ON cp.product_id = p.id
+JOIN shop.clients c ON cp.client_id = c.id ORDER BY c.id 
+
+
+SELECT * FROM shop.clients
+INSERT INTO shop.clients(name, email, phone) VALUES ('asd', 'asd', 'asd');

@@ -11,10 +11,12 @@ public class FurnitureService : IFurnitureService  {
     private IBaseRepository<Client> Clients { get; set; }
     private IBaseRepository<Address> Addresses { get; set; }
     private IBaseRepository<ClientRequest> Requests { get; set; }
+    private IBaseRepository<Orders> Orders { get; set; }
     
 
-    public FurnitureService(IBaseRepository<Client> clients, IBaseRepository<Address> address, IBaseRepository<ClientRequest> requests, IBaseRepository<Product> product)
+    public FurnitureService(IBaseRepository<Orders> orders, IBaseRepository<Client> clients, IBaseRepository<Address> address, IBaseRepository<ClientRequest> requests, IBaseRepository<Product> product)
         {
+            Orders = orders;
             Addresses = address;
             Products = product;
             Requests = requests;
@@ -26,8 +28,15 @@ public class FurnitureService : IFurnitureService  {
         List<Product> products = Products.GetAll();
         return products;
     }
-    public void MakeOrder(Product[] product, Client client) {
+    public void MakeOrder(Product[] products, Client client) {
+        Client newClient = Clients.Create(client);
 
+        foreach (Product i in products)  {
+            Orders.Create(new Orders {
+                client_id = newClient.id,
+                product_id = i.id
+            } );
+        }
     }
     public void MakeRequest(ClientRequest req) {
         Requests.Create(req);

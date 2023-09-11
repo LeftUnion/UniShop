@@ -15,7 +15,7 @@ INSERT INTO shop.product_categories(cathegory) VALUES('tables');
 
 
 -- insert kitchen
-INSERT INTO shop.products(src, description, price) VALUES('https://hoff.ru/upload/iblock/f67/f67e63b98034ebe823e8c93fe1a48910.jpg', 'Кухонный гарнитур Лина 2 м', 26399, 1);
+INSERT INTO shop.products(src, description, price) VALUES('https://hoff.ru/upload/iblock/f67/f67e63b98034ebe823e8c93fe1a48910.jpg', 'Кухонный гарнитур Лина 2 м', 26399);
 INSERT INTO shop.products(src, description, price) VALUES('https://hoff.ru/upload/hoff_resize/hoff-images/508/991/6/86c2c734cc7b86eda4db8ab56dcf7637.jpg/666x444_85.webp', 'Кухонный гарнитур Стелла 2,4 м', 22999 , 1);
 INSERT INTO shop.products(src, description, price) VALUES('https://hoff.ru/upload/iblock/a56/a5616521c341f483eb8eb16735114fbc.jpg', 'Кухонный гарнитур Лион', 17999, 1);
 INSERT INTO shop.products(src, description, price) VALUES('https://hoff.ru/upload/iblock/aa0/aa0f0ca8be4c5c1e5c15914fe8a2d5b9.jpg', 'Кухонный гарнитур Сити 2,4 м', 21999, 1);

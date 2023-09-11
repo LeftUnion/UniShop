@@ -43,7 +43,7 @@ namespace HelloWebApi
             services.AddTransient<IFurnitureService, FurnitureService>();
             services.AddTransient<IBaseRepository<Product>, BaseRepository<Product>>();
             services.AddTransient<IBaseRepository<Client>, BaseRepository<Client>>();
-            services.AddTransient<IBaseRepository<Order>, BaseRepository<Order>>();
+            services.AddTransient<IBaseRepository<Orders>, BaseRepository<Orders>>();
             services.AddTransient<IBaseRepository<Address>, BaseRepository<Address>>();
             services.AddTransient<IBaseRepository<ClientRequest>, BaseRepository<ClientRequest>>();
         }

@@ -1,5 +1,6 @@
-public class Order : BaseModel
+public class Orders : BaseModel
 {
-    public int clientid {get; set;}
-    public int productid {get; set;}
+    public int client_id { get; set; }
+    public int product_id { get; set; }
+
 }

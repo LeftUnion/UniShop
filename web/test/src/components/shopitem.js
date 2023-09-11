@@ -1,5 +1,5 @@
 import {useState, formRef, useContext} from 'react';
-import {IdProvider, IdContext} from '../components/context'
+import {IdProvider, UuidContext} from '../components/context'
 import { json } from 'react-router-dom';
 
 // SaveLocalStorage() {
@@ -14,15 +14,23 @@ import { json } from 'react-router-dom';
 // }
 
 
-export function ShopItem({itemId, src, name, price}) {
+export function ShopItem({id, src, name, price}) {
 
-    const { id, setId } = useContext(IdContext);
+
 
     const handleClick = (event) => {
         const cartName = "cart"
+        
+        let uuid = localStorage.getItem("uuid")
+        if (uuid == undefined) {
+            localStorage.setItem("uuid", "0")
+        } else {
+            localStorage.setItem("uuid", parseInt(uuid, 10) + 1)
+        }
 
-        var obj = {itemId, src, name, price}
-        setId(id + 1)
+        var obj = {uuid, id, src, name, price}
+        
+        
         const jsonString = JSON.stringify(obj);
 
         var existingArray = JSON.parse(localStorage.getItem(cartName));
@@ -32,6 +40,7 @@ export function ShopItem({itemId, src, name, price}) {
         existingArray.push(jsonString);
 
         localStorage.setItem('cart', JSON.stringify(existingArray));
+
     }
     return (
         <div className="shopitem" ref={formRef}  >
